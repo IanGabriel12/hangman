@@ -1,7 +1,7 @@
 # Hangman game
 
 [x] - Fazer estrutura inicial da página.
-[] - Implementar a lógica inicial do game.
+[x] - Implementar a lógica inicial do game.
 [] - Mostrar o histórico das letras digitadas, separando as letras corretas das incorretas.
 [] - Ao acabar a partida, mostrar mensagem de vitória.
 [] - Contar os erros da pessoa e ao total de 3 erros mostrar mensagem de derrota.
