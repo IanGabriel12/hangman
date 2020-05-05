@@ -14,11 +14,7 @@ export default {
     render(){
         const gameState = game.getGameState();
 
-        for(let letter of gameState.currentAnswer){
-            this.gameWordElement.appendChild(
-                this.createLetterElement(letter)
-            );
-        }
+        this.renderWordElement(gameState.currentAnswer);
     },
 
     createLetterElement(letter){
@@ -29,5 +25,15 @@ export default {
         if(letter) letterElement.classList.add('correct');
     
         return letterElement;
+    },
+
+    renderWordElement(wordToRender){
+        this.gameWordElement.innerHTML = '';
+
+        for(let letter of wordToRender){
+            this.gameWordElement.appendChild(
+                this.createLetterElement(letter)
+            );
+        }
     }
 }

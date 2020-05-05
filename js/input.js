@@ -1,3 +1,4 @@
+import game from './game.js';
 export default {
     sendButtonElement: document.querySelector('#send'),
     letterInputElement: document.querySelector('.letter-input input'),
@@ -11,7 +12,7 @@ export default {
     onLetterSend(letterSended){
         if(!this.isCharacterValid(letterSended)) return;
 
-        console.log(letterSended);
+        game.checkLetterSended(letterSended.toLowerCase());
     },
 
     isCharacterValid(char){
