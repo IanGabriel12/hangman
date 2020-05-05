@@ -3,6 +3,7 @@ export default {
     correctAnswer: 'tangerina',
     currentAnswer: [],
     mistakes: 0,
+    maxMistakes: 3,
 
     startGame(){
         this.currentAnswer = Array(this.correctAnswer.length).fill(null);
@@ -11,7 +12,7 @@ export default {
 
     checkLetterSended(letterSended){
         if(this.correctAnswer.indexOf(letterSended) === -1){
-            mistakes++;
+            this.mistakes++;
         }else{
             this.updateCurrentAnswer(letterSended);
         }
@@ -28,12 +29,12 @@ export default {
     },
 
     getGameState(){
-        const currentAnswer = this.currentAnswer;
-        const mistakes = this.mistakes;
+        const {currentAnswer, mistakes, maxMistakes} = this;
 
         return {
             currentAnswer,
             mistakes,
+            maxMistakes,
         }
     }
 }
