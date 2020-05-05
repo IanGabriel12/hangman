@@ -1,15 +1,4 @@
-const currentWord = 'Tangerina';
-const gameWordElement = document.querySelector('.word');
+import screen from './screen.js';
 
-function render(word){
-    for(letter of word){
-        let letterElement = document.createElement('div');
-        letterElement.classList.add('letter');
-        console.log(letterElement);
+screen.startScreen();
 
-        gameWordElement.appendChild(letterElement);
-    }
-}
-
-
-render(currentWord);
