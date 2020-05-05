@@ -1,0 +1,10 @@
+.letter{
+    border-bottom: 3px solid #5e3b25;
+    width: 30px;
+    height: 40px;
+    margin: 0 5px 10px;
+}
+
+.letter .correct{
+    border-color: #0da84e; 
+}
