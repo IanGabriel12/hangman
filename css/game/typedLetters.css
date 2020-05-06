@@ -4,6 +4,7 @@
     align-items: center;
     flex-wrap: wrap;
     max-width: 90%;
+    min-height: 60px;
 }
 
 .typed-letters .letter{

@@ -1,12 +1,10 @@
 import game from './game.js';
 import input from './input.js';
+import elements from './elements.js';
 
 export default {
-    gameWordElement: document.querySelector('.word'),
-    gameMistakesElement: document.querySelector('.mistakes'),
-    gameTypedLetters: document.querySelector('.typed-letters'),
-
     startScreen(){
+        elements.getElements.call(this);
         game.startGame();
         input.setActions();
 
@@ -23,36 +21,20 @@ export default {
         this.resetScreen();
         const gameState = game.getGameState();
 
+        if(gameState.gameEnded) this.renderModalElement(game.isGameWon(), gameState.correctAnswer);
+
         this.renderWordElement(gameState.currentAnswer);
         this.renderMistakesElement(gameState.mistakes, gameState.maxMistakes);
         this.renderTypedLetters(gameState.typedLetters, gameState.currentAnswer);
-    },
-
-    createLetterElement(letter, isLetterCorrect){
-        let letterElement = document.createElement('div');
-        letterElement.innerText = letter;
-        letterElement.classList.add('letter');
-    
-        if(isLetterCorrect) letterElement.classList.add('correct');
-    
-        return letterElement;
     },
 
     renderWordElement(wordToRender){
         //aqui qualquer letra não nula está correta
         for(let letter of wordToRender){
             this.gameWordElement.appendChild(
-                this.createLetterElement(letter, letter)
+                elements.createLetterElement(letter, letter)
             );
         }
-    },
-
-    createMistakeIconElement(isIconActive){
-        let iconElement = document.createElement('i');
-        iconElement.classList.add('fa-times-circle', 'far');
-        if(isIconActive) iconElement.classList.add('active');
-        
-        return iconElement;
     },
 
     renderMistakesElement(mistakesCount, maxMistakes){
@@ -60,7 +42,7 @@ export default {
 
         for(let i=0; i<maxMistakes; i++){
             this.gameMistakesElement.appendChild(
-                this.createMistakeIconElement(solidIconCount > 0)
+                elements.createMistakeIconElement(solidIconCount > 0)
             );
             solidIconCount--;
         }
@@ -72,10 +54,14 @@ export default {
             let isLetterCorrect = currentAnswer.indexOf(letter) != -1;
 
             this.gameTypedLetters.appendChild(
-                this.createLetterElement(letter, isLetterCorrect)
+                elements.createLetterElement(letter, isLetterCorrect)
             );
         }
+    },
+
+    renderModalElement(isGameWon, correctAnswer){
+        this.gameBodyElement.appendChild(
+            elements.createModalElement(isGameWon, correctAnswer)
+        )
     }
-
-
 }

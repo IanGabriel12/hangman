@@ -1,9 +1,9 @@
 import game from './game.js';
+import elements from './elements.js';
 export default {
-    sendButtonElement: document.querySelector('#send'),
-    letterInputElement: document.querySelector('.letter-input input'),
-    
     setActions(){
+        elements.getElements.call(this);
+
         this.sendButtonElement.onclick = () => {
             this.onLetterSend(this.letterInputElement.value)
         }

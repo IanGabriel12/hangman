@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/7adce2e0ab.js" crossorigin="anonymous"></script>
-    <title>Hangman</title>
+    <title>Forca</title>
 </head>
 <body>
-    <h1>Hangman</h1>
+    <h1>Jogo da forca</h1>
+    <!--
+        <div class="modal">
+            <div class="modal-message">
+                <h1>DERROTA</h1>
+                <p>A palavra era:</p>
+                <h2>Tangerina</h2>
+                <button>Tentar novamente</button>
+            </div>
+        </div>
+    -->
+    <div class="typed-letters"></div>
     <div class="mistakes"></div>
     <div class="word"></div>
-    <div class="typed-letters"></div>
-    <div class="letter-input">
-        <p>Digite uma letra: </p>
-        <input type="text" maxlength="1">
-    </div>
+    <input type="text" maxlength="1" placeholder="Digite uma letra:" id="letter-input" >
     <button id="send">Clique</button>
     <script src="js/index.js" type="module"></script>
 </body>

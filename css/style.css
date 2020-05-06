@@ -1,5 +1,6 @@
 @import './sendButton.css';
 @import './letterInput.css';
+@import './modal.css';
 @import './game/letter.css';
 @import './game/mistakes.css';
 @import './game/word.css';
@@ -21,3 +22,4 @@ body{
 h1{
     font-size: 25px;
 }
+

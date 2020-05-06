@@ -9,6 +9,8 @@ export default {
     startGame(){
         this.currentAnswer = Array(this.correctAnswer.length).fill(null);
         this.mistakes = 0;
+        this.gameEnded = false;
+        this.typedLetters = [];
     },
 
     checkLetterSended(letterSended){
@@ -19,7 +21,7 @@ export default {
         }else{
             this.updateCurrentAnswer(letterSended);
         }
-
+        
         this.typedLetters.push(letterSended);
         screen.render();
     },
@@ -32,14 +34,36 @@ export default {
         }
     },
 
+    checkGameEnd(){
+        /*será chamada em toda atualização do 
+        jogo para indicar se o jogo acabou*/
+        if(this.currentAnswer.indexOf(null) === -1) return true;
+
+        if(this.mistakes === this.maxMistakes) return true;
+
+        return false;
+    },
+
+    isGameWon(){
+        /*apenas será chamada quando o jogo acabar
+        retorna se foi uma vitória ou derrota*/
+        if(this.mistakes === this.maxMistakes) return false;
+
+        return true;
+    },
+
     getGameState(){
-        const {currentAnswer, mistakes, maxMistakes, typedLetters} = this;
+        const {correctAnswer, currentAnswer, mistakes, maxMistakes, typedLetters} = this;
+
+        const gameEnded = this.checkGameEnd();
 
         return {
+            correctAnswer,
             currentAnswer,
             mistakes,
             maxMistakes,
             typedLetters,
+            gameEnded,
         }
     }
 }

@@ -1,33 +1,21 @@
-.letter-input{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #34495e;
-    color: white;
-    margin: 10px 0;
-    width: 90%;
+#letter-input{
     max-width: 400px;
-}
-
-.letter-input p {
-    display: inline;
-    font-size: 30px;
-}
-
-.letter-input input{
-    width: 50px;
-    height: 50px; 
-    margin-left: 20px;
-    background-color: #34495e;
+    width: 90%;
+    margin-bottom: 50px;
+    background-color: none;
     font-size: 30px;
     text-align: center;
-    border: 3px solid white;;
-    color: white;
+    border: 3px solid white;
+    color: #22303d;
     transition: background-color 0.2s;
 }
 
-.letter-input input:focus{
+#letter-input::placeholder{
+    color: #22303d;
+    font-weight: bold;
+}
+
+#letter-input:focus, #letter-input:hover{
     outline: 0;
-    background-color: #22303d;
-    color: white;
+    background-color: #bbbbbb;
 }
