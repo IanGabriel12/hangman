@@ -4,9 +4,23 @@ export default {
     setActions(){
         elements.getElements.call(this);
 
+        //Ações do teclado:
+        const Enter = () => {
+            this.onLetterSend(this.letterInputElement.value);
+        };
+
+        const keyboardActions = {
+            Enter,
+        };
+
+
         this.sendButtonElement.onclick = () => {
             this.onLetterSend(this.letterInputElement.value);
-            this.letterInputElement.value = '';
+        }
+
+        this.gameBodyElement.onkeydown = event => {
+            let action = keyboardActions[event.key];
+            if(action) action();
         }
     },
 

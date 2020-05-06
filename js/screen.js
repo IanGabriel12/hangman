@@ -12,6 +12,7 @@ export default {
     },
 
     resetScreen(){
+        this.letterInputElement.value = '';
         this.gameMistakesElement.innerHTML = '';
         this.gameWordElement.innerHTML = '';
         this.gameTypedLetters.innerHTML = '';
