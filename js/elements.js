@@ -9,7 +9,7 @@ export default {
         this.letterInputElement = document.querySelector('#letter-input');
     },
 
-    createModalElement(isGameWon, correctAnswer){
+    createModalElement(isGameWon, correctAnswer, onClickFunction){
         let modalElement = document.createElement('div');
         modalElement.classList.add('modal');
 
@@ -28,23 +28,12 @@ export default {
 
         let modalButton = document.createElement('button');
         modalButton.innerText = 'Jogar novamente';
-        modalButton.onclick = () => {
-            this.deleteModalElement();
-        };
-        console.log(modalButton.onclick);
+        modalButton.onclick = onClickFunction;
 
         modalMessageDiv.append(modalHeader, modalParagraph, modalCorrectAnswer, modalButton);
         modalElement.appendChild(modalMessageDiv);
 
         return modalElement; 
-    },
-
-    deleteModalElement(){
-        console.log(this);
-        this.getElements();
-
-        const modalElement = document.querySelector('.modal');
-        this.gameBodyElement.removeChild(modalElement);
     },
 
     createMistakeIconElement(isIconActive){

@@ -11,6 +11,7 @@ export default {
         this.mistakes = 0;
         this.gameEnded = false;
         this.typedLetters = [];
+        screen.render();
     },
 
     checkLetterSended(letterSended){

@@ -61,7 +61,18 @@ export default {
 
     renderModalElement(isGameWon, correctAnswer){
         this.gameBodyElement.appendChild(
-            elements.createModalElement(isGameWon, correctAnswer)
+            elements.createModalElement(isGameWon, correctAnswer, this.restart.bind(this))
         )
+    },
+
+    restart(){
+        console.log(this);
+        this.gameBodyElement.removeChild(
+            document.querySelector('.modal')
+        );
+
+        game.startGame();
     }
+
+
 }

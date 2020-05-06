@@ -5,7 +5,8 @@ export default {
         elements.getElements.call(this);
 
         this.sendButtonElement.onclick = () => {
-            this.onLetterSend(this.letterInputElement.value)
+            this.onLetterSend(this.letterInputElement.value);
+            this.letterInputElement.value = '';
         }
     },
 
