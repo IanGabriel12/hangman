@@ -2,6 +2,7 @@ import screen from './screen.js';
 export default {
     correctAnswer: 'tangerina',
     currentAnswer: [],
+    typedLetters: [],
     mistakes: 0,
     maxMistakes: 3,
 
@@ -11,12 +12,15 @@ export default {
     },
 
     checkLetterSended(letterSended){
+        if(this.typedLetters.indexOf(letterSended) != -1) return;
+
         if(this.correctAnswer.indexOf(letterSended) === -1){
             this.mistakes++;
         }else{
             this.updateCurrentAnswer(letterSended);
         }
 
+        this.typedLetters.push(letterSended);
         screen.render();
     },
 
@@ -29,12 +33,13 @@ export default {
     },
 
     getGameState(){
-        const {currentAnswer, mistakes, maxMistakes} = this;
+        const {currentAnswer, mistakes, maxMistakes, typedLetters} = this;
 
         return {
             currentAnswer,
             mistakes,
             maxMistakes,
+            typedLetters,
         }
     }
 }

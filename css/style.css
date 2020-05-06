@@ -1,6 +1,9 @@
 @import './sendButton.css';
 @import './letterInput.css';
-@import './game.css';
+@import './game/letter.css';
+@import './game/mistakes.css';
+@import './game/word.css';
+@import './game/typedLetters.css';
 
 *{
     box-sizing: border-box;

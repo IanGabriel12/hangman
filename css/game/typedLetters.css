@@ -1,0 +1,18 @@
+.typed-letters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 90%;
+}
+
+.typed-letters .letter{
+    background-color: #ff00001c;
+    color: red;
+}
+
+.typed-letters .letter.correct{
+    color: #0da84e;
+    background-color: #0da84e1c;
+}
+

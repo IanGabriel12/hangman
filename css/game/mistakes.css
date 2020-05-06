@@ -11,12 +11,9 @@
 .mistakes i{
     transition: color 0.3s;
     margin: 0 5px;
+    color: #ff00003f;
 }
 
-.mistakes i.far{
-    color: rgba(255, 0, 0, 0.247);
-}
-
-.mistakes i.fas{
+.mistakes i.active{
     color:red;
 }

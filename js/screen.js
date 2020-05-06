@@ -4,6 +4,7 @@ import input from './input.js';
 export default {
     gameWordElement: document.querySelector('.word'),
     gameMistakesElement: document.querySelector('.mistakes'),
+    gameTypedLetters: document.querySelector('.typed-letters'),
 
     startScreen(){
         game.startGame();
@@ -15,6 +16,7 @@ export default {
     resetScreen(){
         this.gameMistakesElement.innerHTML = '';
         this.gameWordElement.innerHTML = '';
+        this.gameTypedLetters.innerHTML = '';
     },
 
     render(){
@@ -23,30 +25,33 @@ export default {
 
         this.renderWordElement(gameState.currentAnswer);
         this.renderMistakesElement(gameState.mistakes, gameState.maxMistakes);
+        this.renderTypedLetters(gameState.typedLetters, gameState.currentAnswer);
     },
 
-    createLetterElement(letter){
+    createLetterElement(letter, isLetterCorrect){
         let letterElement = document.createElement('div');
         letterElement.innerText = letter;
         letterElement.classList.add('letter');
     
-        if(letter) letterElement.classList.add('correct');
+        if(isLetterCorrect) letterElement.classList.add('correct');
     
         return letterElement;
     },
 
     renderWordElement(wordToRender){
+        //aqui qualquer letra não nula está correta
         for(let letter of wordToRender){
             this.gameWordElement.appendChild(
-                this.createLetterElement(letter)
+                this.createLetterElement(letter, letter)
             );
         }
     },
 
-    createMistakeIconElement(isIconSolid){
+    createMistakeIconElement(isIconActive){
         let iconElement = document.createElement('i');
-        iconElement.classList.add('fa-times-circle');
-        iconElement.classList.add(isIconSolid ? 'fas' : 'far');
+        iconElement.classList.add('fa-times-circle', 'far');
+        if(isIconActive) iconElement.classList.add('active');
+        
         return iconElement;
     },
 
@@ -59,5 +64,18 @@ export default {
             );
             solidIconCount--;
         }
+    },
+
+    renderTypedLetters(typedLetters, currentAnswer){
+        //aqui letras corretas estão presentes na currentAnswer
+        for(let letter of typedLetters){
+            let isLetterCorrect = currentAnswer.indexOf(letter) != -1;
+
+            this.gameTypedLetters.appendChild(
+                this.createLetterElement(letter, isLetterCorrect)
+            );
+        }
     }
+
+
 }
