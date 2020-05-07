@@ -10,7 +10,18 @@
 <body>
     <i class="sound-button fas fa-volume-up"></i>
     <h1>Jogo da forca</h1>
-    <!--
+    <div class="game">
+        <h3 id='hint'></h3>
+        <div class="mistakes"></div>
+        <div class="word"></div>
+        <div class="typed-letters"></div>
+    </div>
+    <input type="text" maxlength="1" placeholder="Digite uma letra:" id="letter-input" >
+    <button id="send">Clique</button>
+    <script src="js/index.js" type="module"></script>
+
+
+     <!--
         <div class="modal">
             <div class="modal-message">
                 <h1>DERROTA</h1>
@@ -20,11 +31,5 @@
             </div>
         </div>
     -->
-    <div class="typed-letters"></div>
-    <div class="mistakes"></div>
-    <div class="word"></div>
-    <input type="text" maxlength="1" placeholder="Digite uma letra:" id="letter-input" >
-    <button id="send">Clique</button>
-    <script src="js/index.js" type="module"></script>
 </body>
 </html>

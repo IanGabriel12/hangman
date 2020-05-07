@@ -2,9 +2,10 @@ import screen from './screen.js';
 import gameWords from './words.js';
 import audio from './audio.js';
 export default {
-    words: gameWords, //palavras ainda não jogadas
+    words: [...gameWords], //palavras ainda não jogadas
     previousWords: [], //palavras já jogadas
     correctAnswer: '',
+    answerHint: '',
     currentAnswer: [],
     typedLetters: [],
     mistakes: 0,
@@ -66,12 +67,13 @@ export default {
     },
 
     getGameState(){
-        const {correctAnswer, currentAnswer, mistakes, maxMistakes, typedLetters} = this;
+        const {correctAnswer, answerHint, currentAnswer, mistakes, maxMistakes, typedLetters} = this;
 
         const gameEnded = this.checkGameEnd();
 
         return {
             correctAnswer,
+            answerHint,
             currentAnswer,
             mistakes,
             maxMistakes,
@@ -83,7 +85,6 @@ export default {
     drawNewWord(){
         if(this.words.length === 0) {
             this.resetWords();
-            return;
         }
 
         //sorteando nova palavra
@@ -93,11 +94,12 @@ export default {
         this.previousWords.push(selectedWord);
         this.words.splice(this.words.indexOf(selectedWord), 1);
 
-        this.correctAnswer = selectedWord;
+        this.correctAnswer = selectedWord.word;
+        this.answerHint = selectedWord.hint;
     },
 
     resetWords(){
-        this.words = gameWords;
+        this.words = [...gameWords];
         this.previousWords = [];
     }
 }

@@ -16,6 +16,7 @@ export default {
         this.gameMistakesElement.innerHTML = '';
         this.gameWordElement.innerHTML = '';
         this.gameTypedLetters.innerHTML = '';
+        this.gameHintElement.innerHTML = '';
     },
 
     render(){
@@ -25,6 +26,7 @@ export default {
         if(gameState.gameEnded) this.renderModalElement(game.isGameWon(), gameState.correctAnswer);
 
         this.renderWordElement(gameState.currentAnswer);
+        this.renderHintElement(gameState.answerHint);
         this.renderMistakesElement(gameState.mistakes, gameState.maxMistakes);
         this.renderTypedLetters(gameState.typedLetters, gameState.currentAnswer);
     },
@@ -66,6 +68,10 @@ export default {
         )
     },
 
+    renderHintElement(hint){
+        this.gameHintElement.innerText = `Dica: ${hint}`;
+    },
+
     updateAudioButtonElement(isAudioMuted){
         if(isAudioMuted){
             this.gameAudioElement.classList.remove('fa-volume-up');
@@ -77,7 +83,6 @@ export default {
     },
 
     restart(){
-        console.log(this);
         this.gameBodyElement.removeChild(
             document.querySelector('.modal')
         );

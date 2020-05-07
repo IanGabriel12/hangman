@@ -8,5 +8,5 @@
 [x] - Adicionar eventos de teclado, para que não seja necessário clicar no botão.
 [x] - Ao final da rodada, adicionar opção de jogar novamente, sorteando uma nova palavra.
 [x] - Adicionar efeitos sonoros, ao acertar ou errar.
-[] - Adicionar um botão que desativa/ativa os sons do jogo.
+[x] - Adicionar um botão que desativa/ativa os sons do jogo.
 [] - Cada palavra agora deve ter uma dica associada a ela.

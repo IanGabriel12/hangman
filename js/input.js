@@ -20,7 +20,6 @@ export default {
         };
 
         this.gameBodyElement.onkeydown = event => {
-            console.log(event.key);
             let action = keyboardActions[event.key];
             if(action) action();
         };

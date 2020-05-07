@@ -8,6 +8,7 @@ export default {
         this.sendButtonElement = document.querySelector('#send');
         this.letterInputElement = document.querySelector('#letter-input');
         this.gameAudioElement = document.querySelector('.sound-button');
+        this.gameHintElement = document.querySelector('#hint');
     },
 
     createModalElement(isGameWon, correctAnswer, onClickFunction){
