@@ -1,5 +1,7 @@
 import game from './game.js';
 import elements from './elements.js';
+import audio from './audio.js';
+
 export default {
     setActions(){
         elements.getElements.call(this);
@@ -8,12 +10,17 @@ export default {
         const Enter = () => {
             this.onLetterSend(this.letterInputElement.value);
         };
+        const Control = () => {
+            audio.toggleAudio();
+        }
 
         const keyboardActions = {
             Enter,
+            Control,
         };
 
         this.gameBodyElement.onkeydown = event => {
+            console.log(event.key);
             let action = keyboardActions[event.key];
             if(action) action();
         };
@@ -22,6 +29,10 @@ export default {
         this.sendButtonElement.onclick = () => {
             this.onLetterSend(this.letterInputElement.value);
         } 
+
+        this.gameAudioElement.onclick = () => {
+            audio.toggleAudio();
+        }
     },
 
     onLetterSend(letterSended){

@@ -5,6 +5,7 @@
 @import './game/mistakes.css';
 @import './game/word.css';
 @import './game/typedLetters.css';
+@import './soundButton.css';
 
 *{
     box-sizing: border-box;

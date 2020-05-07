@@ -66,6 +66,16 @@ export default {
         )
     },
 
+    updateAudioButtonElement(isAudioMuted){
+        if(isAudioMuted){
+            this.gameAudioElement.classList.remove('fa-volume-up');
+            this.gameAudioElement.classList.add('fa-volume-mute');
+        }else{
+            this.gameAudioElement.classList.remove('fa-volume-mute');
+            this.gameAudioElement.classList.add('fa-volume-up');
+        }
+    },
+
     restart(){
         console.log(this);
         this.gameBodyElement.removeChild(
