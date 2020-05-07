@@ -13,15 +13,15 @@ export default {
             Enter,
         };
 
-
-        this.sendButtonElement.onclick = () => {
-            this.onLetterSend(this.letterInputElement.value);
-        }
-
         this.gameBodyElement.onkeydown = event => {
             let action = keyboardActions[event.key];
             if(action) action();
-        }
+        };
+
+        //Ações de clique:
+        this.sendButtonElement.onclick = () => {
+            this.onLetterSend(this.letterInputElement.value);
+        } 
     },
 
     onLetterSend(letterSended){
@@ -31,8 +31,8 @@ export default {
     },
 
     isCharacterValid(char){
-        let uppercaseLetter = char.toUpperCase();
-        let allowedInput = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let uppercaseLetter = char.toLowerCase();
+        let allowedInput = 'abcdefghijklmnopqrstuvwxyz';
 
         if(
             !uppercaseLetter || 

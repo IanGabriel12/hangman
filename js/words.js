@@ -1,5 +1,5 @@
 export default [
-    'Banana',
-    'Laranja',
-    'Tangerina',
+    'banana',
+    'laranja',
+    'tangerina',
 ];
