@@ -1,12 +1,11 @@
 # Hangman game
 
-[x] - Fazer estrutura inicial da página.
-[x] - Implementar a lógica inicial do game.
-[x] - Mostrar o histórico das letras digitadas, diferenciando as letras corretas das incorretas.
-[x] - Ao acabar a partida, mostrar mensagem de vitória.
-[x] - Ao total de 3 erros mostrar mensagem de derrota.
-[x] - Adicionar eventos de teclado, para que não seja necessário clicar no botão.
-[x] - Ao final da rodada, adicionar opção de jogar novamente, sorteando uma nova palavra.
-[x] - Adicionar efeitos sonoros, ao acertar ou errar.
-[x] - Adicionar um botão que desativa/ativa os sons do jogo.
-[] - Cada palavra agora deve ter uma dica associada a ela.
+Esse é um jogo da forca feito apenas com HTML, CSS e javascript
+
+O jogo possui efeitos sonoros que podem ser desativados pela tecla Ctrl
+Você pode apertar Enter para enviar o seu chute, em vez de clicar no botão.
+
+O jogo sorteia uma palavra aleatória de uma lista de palavras e as remove dessa lista,
+ou seja as palavras só se repetem quando o jogo já foi jogado com todas.
+
+[Acesse Aqui](https://ianghangmangame.netlify.app)
